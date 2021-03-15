@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { UpdateStatusComponent } from '../update-status/update-status.component';
 import { AccountsService } from './accounts.service';
@@ -19,7 +19,8 @@ export class AccountsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private accountsService: AccountsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private cdRef: ChangeDetectorRef,
   ) {
     this.getUsers();
    }
@@ -43,7 +44,7 @@ export class AccountsComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  updateStatus(element){
+  updateStatus(element, event){
     //alert('Update status: ' + element.email)
     // Open Dialog here to confirm updating status
     const updateStatusDialog = this.dialog.open(UpdateStatusComponent, {
@@ -54,9 +55,20 @@ export class AccountsComponent implements OnInit, AfterViewInit {
     updateStatusDialog.componentInstance.email = element.email;
 
     updateStatusDialog.afterClosed().subscribe((result) => {
-      console.log(result);
       // 
-      // if result true --> update status else keep old status and button values
+      if (result){
+        let status = element.active ? false : true;
+        let statusBody: any = {email : element.email , status: status};
+
+        this.accountsService.updateStatus(statusBody).subscribe(
+          (data) => {
+            this.getUsers();
+            this.cdRef.detectChanges();
+          }
+        )
+      }else{
+        event.source._checked = !event.source._checked;
+      }
     });
   }
 
