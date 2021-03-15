@@ -26,6 +26,9 @@ export class Endpoints {
     static readonly ENDPOINT_DEPLOY: string = Endpoints.ROOT_API + "/deploy";
     static readonly ENDPOINT_OASRAML: string = Endpoints.ROOT_API;
 
-    static readonly LOGIN_ANYPOINT: string =
-        Endpoints.ROOT_API + "/mulesoftOauth?accessToken=";
+    static readonly USERS_API: string = "http://localhost:8080";
+
+    static readonly ENDPOINT_ACCOUNTS: string =
+        Endpoints.USERS_API + "/api/users";
+    
 }

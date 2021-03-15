@@ -194,10 +194,16 @@ export class ToolbarComponent implements OnInit, AfterViewInit, AfterViewChecked
     }
 
     logout(): void { 
-        this.socialAuthService.signOut().then(()=>{
-            localStorage.removeItem("currentUser");
-            this._router.navigate(["login"]);
-        });    
+        
+            this.socialAuthService.signOut().then(()=>{
+                localStorage.removeItem("currentUser");
+                this._router.navigate(["login"]);
+            }).catch(()=>{
+                localStorage.removeItem("currentUser");
+                this._router.navigate(["login"]);
+            }); 
+        
+        
     }
 
     getProfile() {

@@ -196,12 +196,16 @@ export class LoginComponent implements OnInit {
             
             // call backend
             this.authenticationService.logingoogle(user.email).subscribe(
-              (data) => {
+              (data: any) => {
                 console.log(data); 
-                this.user = user;
-                this.loggedIn = (user != null);
-                localStorage.setItem('currentUser', JSON.stringify(data));
-                this._router.navigate(['home']);
+                if(data.active){
+                  this.user = user;
+                  this.loggedIn = (user != null);
+                  localStorage.setItem('currentUser', JSON.stringify(data));
+                  this._router.navigate(['home']);
+                }else{
+                  this.snackBar.open("Account suspended! Please contact the admin for further informations", null, {duration: 4000})
+                }
               },
               (error)=> {
                 this.snackBar.open("User does not exist", null, {duration: 3000})
@@ -217,9 +221,13 @@ export class LoginComponent implements OnInit {
     login(): void {
         this.authenticationService.login(this.loginForm.value).subscribe(
             (data) => {
-                console.log("Logged in!");
+              if(data['user'].active){
+              
                 localStorage.setItem('currentUser', JSON.stringify(data['user']));
-                this._router.navigateByUrl("/home");
+                this._router.navigate(['home']);
+              }else{
+                this.snackBar.open("Account suspended! Please contact the admin for further informations", null, {duration: 4000})
+              }
                 
             },
             (error)=> console.log(error)

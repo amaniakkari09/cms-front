@@ -14,6 +14,14 @@ export const navigation: FuseNavigation[] = [
                 type: "item",
                 icon: "home",
                 url: "/home",
+            },
+            {
+                id: "accounts",
+                title: "Accounts",
+                translate: "NAV.ACCOUNTS.TITLE",
+                type: "item",
+                icon: "account_box",
+                url: "/accounts",
             }
         ],
     },

@@ -1,0 +1,26 @@
+
+<div
+matDialogTitle
+style="background-color: #2979ff; height: 50px; padding-top: 0.5px;"
+>
+<h2 style="margin-left: 10px; margin-top: 5px; font-size: 20px;">
+    Confirm
+</h2>
+</div>
+<div mat-dialog-content>Are you sure you want to update status for user: <br> {{email}}</div>
+<div fxLayoutAlign="end" mat-dialog-actions>
+<button
+    mat-raised-button
+    class="mat-accent"
+    (click)="dialogRef.close(true)"
+>
+    <mat-icon class="close-icon">done</mat-icon> Yes
+</button>
+<button
+    mat-raised-button
+    class="mat-accent"
+    (click)="dialogRef.close(false)"
+>
+    <mat-icon class="close-icon">close</mat-icon> No
+</button>
+</div>
