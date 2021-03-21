@@ -10,6 +10,14 @@ export const locale = {
             ACCOUNTS: {
                 TITLE: "Accounts",
                 BADGE: "25"
+            },
+            PROFILE: {
+                TITLE: "Profile",
+                BADGE: "25"
+            },
+            CONTACTS: {
+                TITLE: "Contacts",
+                BADGE: "25"
             }
         },
     },

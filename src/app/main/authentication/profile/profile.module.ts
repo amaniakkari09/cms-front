@@ -14,17 +14,19 @@ import { MaterialModule } from "app/main/material.module";
 import { AuthGuard } from "../services/auth-gard.service";
 import { paths } from "../../../common/paths/app-paths";
 
-const routes = [
+/* const routes = [
     {
         path: paths.profile,
         component: ProfileComponent,
         canActivate: [AuthGuard],
     },
-];
+]; */
 
 @NgModule({
     declarations: [ProfileComponent, ProfileAboutComponent],
-    imports: [RouterModule.forChild(routes), MaterialModule],
+    imports: [
+        //RouterModule.forChild(routes), 
+        MaterialModule],
     providers: [ProfileService],
 })
 export class ProfileModule {}

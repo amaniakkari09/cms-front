@@ -44,6 +44,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import {
   GoogleLoginProvider  
 } from 'angularx-social-login';
+import { ModalComponent } from './main/profile/modal/modal.component';
 
 export function tokenGetter() {
     return localStorage.getItem('access_token');
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
         NotFoundComponent,
         SnackbarComponent,
         EnumKeyByValuePipe,
-        EnumValueByKeyPipe
+        EnumValueByKeyPipe,
+        ModalComponent
     ],
     imports: [
         BrowserModule,

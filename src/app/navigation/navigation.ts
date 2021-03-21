@@ -22,6 +22,22 @@ export const navigation: FuseNavigation[] = [
                 type: "item",
                 icon: "account_box",
                 url: "/accounts",
+            },
+            {
+                id: "profile",
+                title: "profile",
+                translate: "NAV.PROFILE.TITLE",
+                type: "item",
+                icon: "account_circle",
+                url: "/profile",
+            },
+            {
+                id: "contacts",
+                title: "contacts",
+                translate: "NAV.CONTACTS.TITLE",
+                type: "item",
+                icon: "account_circle",
+                url: "/contacts",
             }
         ],
     },

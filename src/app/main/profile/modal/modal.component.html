@@ -1,0 +1,155 @@
+     <!-- VERTICAL STEPPER EXAMPLE -->
+     <mat-vertical-stepper class="mat-elevation-z4" [linear]="true">
+
+            
+      <mat-step [stepControl]="verticalStepperStep1">
+
+          <form fxLayout="column" [formGroup]="verticalStepperStep1">
+
+              <ng-template matStepLabel>Personal Informations</ng-template>
+
+              <div fxFlex="1 0 auto" fxLayout="column">
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Full Name</mat-label>
+                      <input matInput formControlName="FullName" required>
+                      <mat-error>Full Name is required!</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Email Adress</mat-label>
+                      <input matInput formControlName="Email" required>
+                      <mat-error>Email Adress is required!</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Phone Number</mat-label>
+                      <input matInput formControlName="Phone" required>
+                      <mat-error>Phone Number is required!</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Job Title</mat-label>
+                      <input matInput formControlName="JobTitle" required>
+                      <mat-error>Job Title is required!</mat-error>
+                  </mat-form-field>
+
+
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="center center">
+                  <button mat-raised-button matStepperNext type="button" color="accent">
+                      Next
+                  </button>
+              </div>
+
+          </form>
+
+      </mat-step>
+
+      <mat-step [stepControl]="verticalStepperStep2">
+
+          <form fxLayout="column" [formGroup]="verticalStepperStep2">
+
+              <ng-template matStepLabel>Organisation</ng-template>
+
+              <div fxFlex="1 0 auto" fxLayout="row">
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Service delivery</mat-label>
+                      <textarea matInput formControlName="serviceDelivery" required>
+                      </textarea>
+                      <mat-error>Service delivery required!</mat-error>
+                  </mat-form-field>
+
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="center center">
+                  <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                      Previous
+                  </button>
+                  <button mat-raised-button matStepperNext type="button" color="accent">
+                      Next
+                  </button>
+              </div>
+
+          </form>
+
+      </mat-step>
+
+      <mat-step [stepControl]="verticalStepperStep3">
+
+          <form fxLayout="column" [formGroup]="verticalStepperStep3">
+
+              <ng-template matStepLabel>Fill out your opportunities</ng-template>
+
+              <div fxFlex="1 0 auto" fxLayout="column">
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>products</mat-label>
+                      <textarea matInput formControlName="Products" required>
+                      </textarea>
+                      <mat-error> products is required!</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Service</mat-label>
+                      <textarea matInput formControlName="Service" >
+                      </textarea>
+                      
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Partnership</mat-label>
+                      <textarea matInput formControlName="Partnership" >
+                      </textarea>
+                  </mat-form-field>
+                  
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Expertise</mat-label>
+                      <textarea matInput formControlName="Expertise" required>
+                      </textarea>
+                      <mat-error> Expertise is required!</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" fxFlex="100">
+                      <mat-label>Requirement</mat-label>
+                      <textarea matInput formControlName="Requirement" >
+                      </textarea>
+                  </mat-form-field>
+
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="center center">
+                  <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                      Previous
+                  </button>
+                  <button mat-raised-button matStepperNext type="button" color="accent">
+                      Next
+                  </button>
+              </div>
+
+          </form>
+
+      </mat-step>
+
+      <mat-step>
+
+          <ng-template matStepLabel>Done</ng-template>
+
+          <div class="h2 m-16" fxLayout="row" fxLayoutAlign="center center">
+              Thank your for filling out our form.
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="center center">
+              <button class="mr-8" mat-raised-button matStepperPrevious type="button" color="accent">
+                  Previous
+              </button>
+              <button mat-raised-button type="button" color="accent" (click)="finishVerticalStepper()">
+                  Finish
+              </button>
+          </div>
+
+      </mat-step>
+
+  </mat-vertical-stepper>
+  

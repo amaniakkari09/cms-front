@@ -206,8 +206,8 @@ export class ToolbarComponent implements OnInit, AfterViewInit, AfterViewChecked
         
     }
 
-    getProfile() {
-        this._router.navigate([paths.profile]);
+    getManageAccount() {
+        this._router.navigate([paths.manage_account]);
     }
 
     

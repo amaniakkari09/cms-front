@@ -11,6 +11,7 @@ import { FuseSharedModule } from "@fuse/shared.module";
 import { ToolbarComponent } from "app/layout/components/toolbar/toolbar.component";
 
 import { ProfileModule } from "../../../main/authentication/profile/profile.module";
+import { ManageAccountModule } from "app/main/manage-account/manage-account.module";
 
 @NgModule({
     declarations: [ToolbarComponent],
@@ -25,6 +26,7 @@ import { ProfileModule } from "../../../main/authentication/profile/profile.modu
         FuseSearchBarModule,
         FuseShortcutsModule,
         ProfileModule,
+        ManageAccountModule
     ],
     exports: [ToolbarComponent],
 })
